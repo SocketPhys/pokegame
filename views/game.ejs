@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    
+    <body>
+        <img id="pokemon" width="220" height="277" src= <%- pokemon -%>  alt="Pokemon">
+        <canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+    </body>
+
+<script>
+    window.onload = function() {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("pokemon");
+        ctx.drawImage(img, 10, 10);
+        c.addEventListener("click",move);
+    }
+
+    function move(){
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.clearRect(0, 0, c.width, c.height);
+        var img = document.getElementById("pokemon");
+       
+        ctx.drawImage(img, Math.random()*400+1, Math.random()*400+1);
+
+    }
+</script>
+</html>
